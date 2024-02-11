@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Body Mass Index using JS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script type="text/javascript">
+        function BtnClick() {
+            var Height = (parseFloat(document.getElementById("txtHeight").value))/100;
+            var Weight = parseInt(document.getElementById("txtWeight").value);
+            var BMI = Weight / Math.pow(Height, 2);
+            
+            var card = document.getElementById("card");
+            card.innerHTML ="";
+            if (BMI > 0 && BMI <= 18.5) {
+                card.innerHTML = `
+                        <div class = "card m-2 p-2 w-50 ms-5">
+                            <p>For the information you entered:</p>
+                            <p>Height: ${Height*100} centimeters</p>
+                            <p>Weight: ${Weight} kilograms</p>
+                            <p>Your BMI is <b>${Math.round(BMI)}</b>, indicating your weight is in the <b>Underweight</b> category for adults of your height. BMI is a screening measure and is not intended to diagnose disease or illness.</p>
+                            <p>Discuss your BMI category with your healthcare provider as BMI may relate to your overall health and well-being. Your healthcare provider might determine possible reasons for underweight and recommend support or treatment.</p>
+                            <p>Maintaining a weight in the healthy BMI range is one way to support overall health as you age. For more information about lifestyle approaches</p>
+                        </div>
+                        <table frame="box" cellpadding="25" width="50" style="font-size: 18px; position:absolute; top: 100px; left: 1150px;">
+                            <thead style="border: 1px solid lightgray">
+                                <tr>
+                                    <th valign="top" style="border: 1px solid lightgray">BMI</th>
+                                    <th valign="top" style="border: 1px solid lightgray">Weight Status</th>
+                                </tr>
+                            </thead>
+                            <tbody style="border: 1px solid lightgray">
+                                <tr style="background-color: #c5bee1; font-weight: 500;">
+                                    <td style="border: 1px solid lightgray;">Below 18.5</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Underweight</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">18.5 - 24.9</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Healthy Weight</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">25.0 - 29.9</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Overweight</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">30.0 and Above</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Obesity</td>
+                                </tr>
+                            </tbody>
+                        <table>
+                    `;
+            } else if (BMI > 18.5 && BMI <= 24.9) {
+                card.innerHTML = `
+                    <div class = "card m-2 p-2 w-50 ms-5">
+                        <p>For the information you entered:</p>
+                        <p>Height: ${Height*100} centimeters</p>
+                        <p>Weight: ${Weight} kilograms</p>
+                        <p>Your BMI is <b>${Math.round(BMI)}</b>, indicating your weight is in the <b>Healthy Weight</b> category for adults of your height. BMI is a screening measure and is not intended to diagnose disease or illness.</p>
+                        <p>Discuss your BMI category with your healthcare provider as BMI may relate to your overall health and well-being. Your healthcare provider might determine possible reasons for underweight and recommend support or treatment.</p>
+                        <p>Maintaining a weight in the healthy BMI range is one way to support overall health as you age. For more information about lifestyle approaches</p>
+                    </div>
+                    <table frame="box" cellpadding="25" width="50" style="font-size: 18px; position:absolute; top: 100px; left: 1150px;">
+                            <thead style="border: 1px solid lightgray">
+                                <tr>
+                                    <th valign="top" style="border: 1px solid lightgray">BMI</th>
+                                    <th valign="top" style="border: 1px solid lightgray">Weight Status</th>
+                                </tr>
+                            </thead>
+                            <tbody style="border: 1px solid lightgray">
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">Below 18.5</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Underweight</td>
+                                </tr>
+                                <tr style="background-color: #c5bee1; font-weight: 500;">
+                                    <td style="border: 1px solid lightgray;">18.5 - 24.9</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Healthy Weight</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">25.0 - 29.9</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Overweight</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">30.0 and Above</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Obesity</td>
+                                </tr>
+                            </tbody>
+                        <table>
+                `;
+            } else if (BMI > 25.0 && BMI <= 29.9) {
+                card.innerHTML = `
+                    <div class = "card m-2 p-2 w-50 ms-5">
+                        <p>For the information you entered:</p>
+                        <p>Height: ${Height*100} centimeters</p>
+                        <p>Weight: ${Weight} kilograms</p>
+                        <p>Your BMI is <b>${Math.round(BMI)}</b>, indicating your weight is in the <b>Over Weight</b> category for adults of your height. BMI is a screening measure and is not intended to diagnose disease or illness.</p>
+                        <p>Discuss your BMI category with your healthcare provider as BMI may relate to your overall health and well-being. Your healthcare provider might determine possible reasons for overweight and recommend support or treatment. Having excess weight can increase risk for chronic conditions, such as high blood pressure, type 2 diabetes, and high cholesterol.</p>
+                        <p>Maintaining a weight in the healthy BMI range is one way to support overall health as you age. For more information about lifestyle approaches</p>
+                    </div>
+                    <table frame="box" cellpadding="25" width="50" style="font-size: 18px; position:absolute; top: 100px; left: 1150px;">
+                            <thead style="border: 1px solid lightgray">
+                                <tr>
+                                    <th valign="top" style="border: 1px solid lightgray">BMI</th>
+                                    <th valign="top" style="border: 1px solid lightgray">Weight Status</th>
+                                </tr>
+                            </thead>
+                            <tbody style="border: 1px solid lightgray">
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">Below 18.5</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Underweight</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">18.5 - 24.9</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Healthy Weight</td>
+                                </tr>
+                                <tr style="background-color: #c5bee1; font-weight: 500;">
+                                    <td style="border: 1px solid lightgray;">25.0 - 29.9</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Overweight</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">30.0 and Above</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Obesity</td>
+                                </tr>
+                            </tbody>
+                        <table>
+                `;
+            } else if (BMI > 30.0 && BMI <= 100) {
+                card.innerHTML = `
+                    <div class = "card m-2 p-2 w-50 ms-5">
+                        <p>For the information you entered:</p>
+                        <p>Height: ${Height*100} centimeters</p>
+                        <p>Weight: ${Weight} kilograms</p>
+                        <p>Your BMI is <b>${Math.round(BMI)}</b>, indicating your weight is in the <b>Obesity</b> category for adults of your height. BMI is a screening measure and is not intended to diagnose disease or illness.</p>
+                        <p>Discuss your BMI category with your healthcare provider as BMI may relate to your overall health and well-being. Your healthcare provider might determine possible reasons for overweight and recommend support or treatment. Having excess weight can increase risk for chronic conditions, such as high blood pressure, type 2 diabetes, and high cholesterol.</p>
+                        <p>Maintaining a weight in the healthy BMI range is one way to support overall health as you age. For more information about lifestyle approaches</p>
+                    </div>
+                    <table frame="box" cellpadding="25" width="50" style="font-size: 18px; position:absolute; top: 100px; left: 1150px;">
+                            <thead style="border: 1px solid lightgray">
+                                <tr>
+                                    <th valign="top" style="border: 1px solid lightgray">BMI</th>
+                                    <th valign="top" style="border: 1px solid lightgray">Weight Status</th>
+                                </tr>
+                            </thead>
+                            <tbody style="border: 1px solid lightgray">
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">Below 18.5</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Underweight</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">18.5 - 24.9</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Healthy Weight</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid lightgray;">25.0 - 29.9</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Overweight</td>
+                                </tr>
+                                <tr style="background-color: #c5bee1; font-weight: 500;">
+                                    <td style="border: 1px solid lightgray;">30.0 and Above</td>
+                                    <td valign="top" style="border: 1px solid lightgray;">Obesity</td>
+                                </tr>
+                            </tbody>
+                        <table>
+                `;
+            }
+        }
+
+        function bodyload() {
+            BtnClick();
+        }
+
+    </script>
+
+</head>
+<body onload="bodyload()" class="container-fluid">
+    <div class="d-flex justify-content-center">
+        <div class="w-25 ps-5">
+            <h2 class="text-center mt-5 mb-3">Adult BMI Calculator</h2>
+    
+            <div class="card m-2 p-4 ">
+                <label><b>Height:</b> Centimeters</label>
+                <div class="mt-2">
+                    <input type="text" size="5" id="txtHeight" required>
+                </div>
+                
+                <label class="mt-2"><b>Weight:</b> Kilogrmas</label>
+                <div class="mt-2">
+                    <input type="text" size="5" id="txtWeight" required>
+                </div>
+                <button onclick="BtnClick()" class="btn btn-primary w-50 mt-4">Calculate</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="card" class="d-flex justify-content-center mt-3">
+
+    </div>
+</body>
+</html>
